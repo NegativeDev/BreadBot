@@ -64,7 +64,6 @@ public class BreadLeaderboard extends SubCommand {
         topBread.stream().limit(10).forEach(member -> {
             String userName = member.getLastRecordedName();
             Member memberById = guild.getMemberById(member.getId());
-            System.out.println("Is member by ID null? " + (memberById == null));
             if (memberById != null)
                 userName = memberById.getAsMention();
 
