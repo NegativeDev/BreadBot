@@ -9,6 +9,7 @@ import dev.negativekb.bot.core.structure.DiscordServer;
 import lombok.RequiredArgsConstructor;
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.entities.Guild;
+import net.dv8tion.jda.api.entities.Member;
 import net.dv8tion.jda.api.entities.User;
 import net.dv8tion.jda.api.events.interaction.SlashCommandEvent;
 import org.jetbrains.annotations.NotNull;
@@ -62,9 +63,10 @@ public class BreadLeaderboard extends SubCommand {
         AtomicInteger iteration = new AtomicInteger(0);
         topBread.stream().limit(10).forEach(member -> {
             String userName = member.getLastRecordedName();
-            User userById = jda.getUserById(member.getId());
-            if (userById != null)
-                userName = userById.getAsTag();
+            Member memberById = guild.getMemberById(member.getId());
+            System.out.println("Is member by ID null? " + (memberById == null));
+            if (memberById != null)
+                userName = memberById.getAsMention();
 
             leaderboardBuilder.append("**#").append(iteration.incrementAndGet())
                     .append("** ").append(userName).append(": **")

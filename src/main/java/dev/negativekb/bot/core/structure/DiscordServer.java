@@ -71,6 +71,9 @@ public class DiscordServer {
             discordMember.setLastMessage(sysMills);
         }
 
+        discordMember.setLastRecordedName(Optional.ofNullable(member.getNickname())
+                .orElse(member.getEffectiveName()));
+
         long bread = discordMember.getBread();
         Collection<Role> breadRolesRoles = new ArrayList<>();
         breadRoles.stream().filter(discordBreadRole -> discordBreadRole.getRole(this).isPresent()).forEach(discordBreadRole -> {
