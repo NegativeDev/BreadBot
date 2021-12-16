@@ -8,7 +8,7 @@ import dev.negativekb.bot.commands.bread.subcommands.BreadLeaderboard;
 import net.dv8tion.jda.api.events.interaction.SlashCommandEvent;
 import org.jetbrains.annotations.NotNull;
 
-@CommandInfo(name = "bread", description = "BreadBot's Main Command")
+@CommandInfo(name = "bread", aliases = {"b"}, description = "BreadBot's Main Command")
 public class CommandBread extends Command {
 
     public CommandBread(DiscordServerManager serverManager) {

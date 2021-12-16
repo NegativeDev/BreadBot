@@ -58,8 +58,6 @@ public class BreadLeaderboard extends SubCommand {
         StringBuilder leaderboardBuilder = new StringBuilder();
         leaderboardBuilder.append("__Top Bread Makers__").append("\n\n");
 
-        JDA jda = BreadBot.getInstance().getJda();
-
         AtomicInteger iteration = new AtomicInteger(0);
         topBread.stream().limit(10).forEach(member -> {
             String userName = member.getLastRecordedName();

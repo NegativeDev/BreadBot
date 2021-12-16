@@ -15,7 +15,7 @@ import org.jetbrains.annotations.NotNull;
 import java.text.DecimalFormat;
 import java.util.Optional;
 
-@CommandInfo(name = "balance", description = "Check your current bread balance!")
+@CommandInfo(name = "balance", aliases = {"bal"}, description = "Check your current bread balance!")
 public class BreadBalance extends SubCommand {
 
     private final DiscordServerManager serverManager;
