@@ -102,4 +102,10 @@ public class DiscordServer {
                         && discordBreadRole.getRole(this).get().getId().equalsIgnoreCase(role.getId()))
                 .findFirst().orElse(null);
     }
+
+    public void removeBreadRole(Role role) {
+        breadRoles.stream().filter(discordBreadRole -> discordBreadRole.getRole(this).isPresent() &&
+                discordBreadRole.getRole(this).get().getId().equalsIgnoreCase(role.getId()))
+                .findFirst().ifPresent(discordBreadRole -> breadRoles.remove(discordBreadRole));
+    }
 }

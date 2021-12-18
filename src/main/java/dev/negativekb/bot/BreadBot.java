@@ -62,8 +62,9 @@ public class BreadBot {
 
         // Commands
         String dev = botConfig.getString("dev.discord.id");
-        registerServerCommand(dev, new CommandBread(serverManager));
-        registerServerCommand(dev, new CommandBreadConfig(serverManager));
+
+        registerGlobalCommand(new CommandBread(serverManager));
+        registerGlobalCommand(new CommandBreadConfig(serverManager));
 
         // Listeners
         builder.addEventListeners(new SlashCommandListener(commandMap));
